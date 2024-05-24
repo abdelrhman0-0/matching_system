@@ -17,12 +17,10 @@ To install Matching System, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/matching_system.git
+    git clone https://github.com/abdelrhman0-0/matching_system.git
     ```
-2. Navigate into the project directory:
-    ```bash
-    cd matching_system
-    ```
+2. Open the app in your editor
+
 3. Install the dependencies:
     ```bash
     npm install
@@ -33,7 +31,7 @@ To install Matching System, follow these steps:
 To use Matching System, follow these steps:
 
 1. Start the MongoDB service.
-2. Import the MongoDB backup:
+2. Replace ./backup with your actual backup path, Import the MongoDB backup:
     ```bash
     mongorestore ./backup --drop
     ```
