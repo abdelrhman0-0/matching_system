@@ -1,0 +1,65 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "DEAL MATCHING SYSTEM API"
+paths:
+  /api/request:
+    post:
+      tags:
+        - Requests
+      summary: Create a new request
+      description: This endpoint allows you to create a new request.
+      parameters:
+        - in: body
+          name: body
+          description: The request to create
+          required: true
+          schema:
+            type: object
+            properties:
+              propertyType:
+                type: string
+                enum: ["VILLA", "HOUSE", "LAND", "APARTMENT"]
+              area:
+                type: number
+              price:
+                type: number
+              city:
+                type: string
+              district:
+                type: string
+              description:
+                type: string
+      security:
+        - jwt: []
+      responses:
+        "200":
+          description: Request created successfully
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal server error
+  /api/user/stats:
+    get:
+      tags:
+        - Statistics
+      summary: Get admin statistics
+      description: This endpoint allows you to get admin statistics.
+      security:
+        - jwt: []
+      responses:
+        "200":
+          description: Statistics retrieved successfully
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+securityDefinitions:
+  jwt:
+    type: apiKey
+    name: Authorization
+    in: header
