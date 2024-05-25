@@ -1,11 +1,9 @@
-version: '3'
+version: '3.8'
 services:
   app:
     build: .
     ports:
       - '3000:3000'
-    depends_on:
-      - db
     environment:
       - MONGO_URI=mongodb://db:27017/matching_system
   db:
@@ -14,6 +12,7 @@ services:
       - mongodb_data:/data/db
       - ./../backup:/backup
     command: mongorestore /backup --drop
-
+    ports:
+      - '27017:27017'
 volumes:
   mongodb_data:
